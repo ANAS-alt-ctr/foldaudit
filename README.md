@@ -20,13 +20,13 @@ for you, before you train anything.
 
 ## What it is
 
-A small, pure-Python library, version 0.2.5. No third-party
+A small, pure-Python library, version 0.2.6. No third-party
 dependencies, no model training, no plots, no GPU, no paid APIs.
 It works with scikit-learn splitters and without them: give it a
 splitter with a `.split()` method, or a plain list of
 `(train_idx, test_idx)` pairs.
 
-## Installation (once published)
+## Installation
 
 ```bash
 pip install foldaudit
@@ -57,7 +57,7 @@ report.raise_if_fail()  # raises ValueError on a FAIL verdict
 # report.raise_if_fail(fail_on_warning=True)  # also fails on WARNING
 ```
 
-## What it checks (version 0.2.5)
+## What it checks (version 0.2.6)
 
 1. **Per-fold table.** Train/test sizes, class counts and rates,
    group counts, and time min/max per fold.
@@ -171,8 +171,8 @@ PYTHONPATH=src python examples/demo.py
 72 tests pass. They use fake splitters made of plain index lists,
 so they need no scikit-learn, pandas, or any other dependency.
 Ruff check and ruff format check are clean. A wheel builds as
-`foldaudit-0.2.5-py3-none-any.whl` and installs and imports as
-version 0.2.5.
+`foldaudit-0.2.6-py3-none-any.whl` and installs and imports as
+version 0.2.6.
 
 ## What changed in 0.2.0 (fixes for the 2 November 2026 problems report)
 
@@ -379,6 +379,19 @@ dependencies, no API or parameter renames, no removed features.
   stdlib fake array with the same shape/tolist interface, so
   the suite still runs without numpy.
 
+## What changed in 0.2.6 (README and packaging only)
+
+No code changes and no new checks in this version. The 0.2.5
+release was published to PyPI on 6 November 2026, so the README
+no longer says "once published" or "not published on PyPI":
+the Installation heading is fixed, and the Blunt status below
+now records the PyPI release and the GitHub repo. The project
+now sets `[project.urls]` Homepage and Repository to
+https://github.com/ANAS-alt-ctr/foldaudit, which 0.2.2
+deliberately skipped because no repo existed yet. Version
+bumped to 0.2.6 because a published 0.2.5 cannot be
+re-uploaded.
+
 ## Blunt status: done vs not done
 
 Done: the core audit, the version 0.1 checks plus the 0.2.0
@@ -386,11 +399,12 @@ rare-class ratio check, the 0.2.1 overlap/duplicate checks, the
 0.2.2 group-overlap check, and the 0.2.4 FA-001 to FA-030 fixes, the 0.2.5 P-001 to P-006 fixes,
 text and JSON reports, configurable thresholds, 72 tests, a
 runnable demo, a clean ruff check and ruff format check, and a
-buildable wheel and sdist that pass twine check.
-Not done: not published on PyPI, not proven to be wanted by
-anyone, and no GitHub repo exists yet, so no Homepage link is
-set. The PyPI name "foldaudit" was checked free on PyPI on
-2 November 2026 and remains unpublished. Real scikit-learn
+buildable wheel and sdist that pass twine check. Published on
+PyPI on 6 November 2026 as 0.2.5
+(https://pypi.org/project/foldaudit/), source on GitHub at
+https://github.com/ANAS-alt-ctr/foldaudit.
+Not done: not proven to be wanted by
+anyone yet. Real scikit-learn
 integration has now been tested successfully: by the auditor's
 regression suite (StratifiedKFold OK, degenerate KFold FAIL,
 GroupKFold counts correct), and in a real-data test on NYC

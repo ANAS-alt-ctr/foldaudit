@@ -20,4 +20,4 @@ from .core import Thresholds, audit
 from .report import Flag, FoldResult, Report
 
 __all__ = ["Flag", "FoldResult", "Report", "Thresholds", "audit"]
-__version__ = "0.2.5"
+__version__ = "0.2.6"
