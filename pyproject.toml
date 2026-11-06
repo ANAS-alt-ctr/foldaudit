@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "foldaudit"
+version = "0.2.5"
+description = "Check that your cross-validation folds are fair and usable before you trust the score."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE*"]
+authors = [{ name = "Anas Riaz" }]
+keywords = ["cross-validation", "machine-learning", "evaluation", "scikit-learn"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+
+[tool.setuptools.package-data]
+foldaudit = ["py.typed"]
